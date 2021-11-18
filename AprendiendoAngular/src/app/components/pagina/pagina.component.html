@@ -1,6 +1,16 @@
-<h1 class="subheader">Página</h1>       
-<div *ngIf="nombre">
-<h2> el nombre es {{nombre}}</h2>                
-</div>
+<app-slider [nombre]="'PÁGINA DE PRUEBA'"></app-slider>
 
-<button (click)="redireccion()">LLEVAME AL FORMULARIO</button>
+<div class="center">
+    <section id="content">
+
+
+        <h1 class="subheader">Página</h1>       
+        <div *ngIf="nombre">
+        <h2> el nombre es {{nombre}}</h2>                
+        </div>
+        
+        <button (click)="redireccion()">LLEVAME AL FORMULARIO</button>
+
+    </section>
+    <app-sidebar></app-sidebar>
+</div>

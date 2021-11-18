@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
+  @Input() nombre:string | undefined; //desde el componente padre ubicado en app.componente.html <app-slider></app-slider>
+  @Input() size: string | undefined;
+  
   constructor() { }
 
   ngOnInit(): void {

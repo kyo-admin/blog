@@ -1,4 +1,5 @@
 export class Pelicula{
+    /*
     public title: string;
     public year: number;
     public image: string;
@@ -8,4 +9,10 @@ export class Pelicula{
         this.year = year;
         this.image= image;
     }
+    */
+    constructor(
+        public title: string,
+        public year: number,
+        public image: string,
+    ){}
 }
