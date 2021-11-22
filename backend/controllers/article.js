@@ -84,7 +84,8 @@ var controller = {
             query.limit(5);
         }
         //find
-        query.sort('_id').exec((err,articles)=>{
+        //en "query.sort('-_id').exec((err,articles)=>{" el signo - en -_id ordena del mas reciente o al mas antiguo
+        query.sort('-_id').exec((err,articles)=>{
             if(err){
                 return res.status(500).send({
                     status:'error',
@@ -124,7 +125,7 @@ var controller = {
                 });
             }
             //devolver el json
-            return res.status(404).send({
+            return res.status(200).send({
                 status:'success',
                 article
             });

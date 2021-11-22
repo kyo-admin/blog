@@ -20,7 +20,22 @@ export class ArticleService {
         return "Soy el servicio de articulos!!!!!!!!!!"
     }
 
-    getArticles():Observable<any>{
-        return this._http.get(this.url+'articles');
+    getArticles(last:any = null):Observable<any>{
+        var articles = 'articles';
+        if(last != null){      
+            articles = 'articles/true';
+        }
+        return this._http.get(this.url+articles);
+    }
+
+    getArticle(articleId:any):Observable<any>{
+        //var article = 'article';
+
+        return this._http.get(this.url+'article/'+articleId);
+    }
+
+    search(searchString: any):Observable<any>{
+        return this._http.get(this.url+'search/'+searchString)
+
     }
 }
