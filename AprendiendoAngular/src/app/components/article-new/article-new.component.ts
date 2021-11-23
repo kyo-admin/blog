@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params} from '@angular/router';
 import { Article } from 'src/app/models/article';
+import { ArticleService } from 'src/app/services/article.service';
+
 
 @Component({
   selector: 'app-article-new',
   templateUrl: './article-new.component.html',
-  styleUrls: ['./article-new.component.css']
+  styleUrls: ['./article-new.component.css'],
+  providers: [ArticleService]
 })
 export class ArticleNewComponent implements OnInit {
   public article: Article; 
+  public status: string;
   public user: any;
 
-  constructor() { 
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _articleService: ArticleService
+  ) { 
     this.article = new Article('','','',null,null);
     
    
@@ -20,7 +29,21 @@ export class ArticleNewComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.article);
-
+    this._articleService.create(this.article).subscribe(
+      response=>{
+        if(response.status == 'success'){
+          this.status = 'success';
+          this.article = response.article;
+          this._router.navigate(['/blog']);
+        }else{
+          this.status ='error';
+        }
+      },
+      error =>{
+      console.log(error);      
+      this.status = 'error';
+      }  
+    );
   }
 }
+
