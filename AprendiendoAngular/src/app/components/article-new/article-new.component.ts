@@ -1,7 +1,7 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Article } from 'src/app/models/article';
+import swal from 'sweetalert';
 import { ArticleService } from 'src/app/services/article.service';
 import { Global } from 'src/app/services/global';
 /*url: Global.url+'upload-image/:id'*/
@@ -65,7 +65,12 @@ afuConfig = {
         if (response.status == 'success') {
           this.status = 'success';
           this.article = response.article;
+
+
+
           this._router.navigate(['/blog']);
+          swal("Usuario Creado!", "el usuario se ha creado correctamente!", "success");
+
         } else {
           this.status = 'error';
         }

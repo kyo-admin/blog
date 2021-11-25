@@ -3,6 +3,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 import { Global } from 'src/app/services/global';
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-article-edit',
@@ -65,7 +67,9 @@ export class ArticleEditComponent implements OnInit {
             this.article = response.articleUpdated;
           //this._router.navigate(['/blog/articulo/',this.article._id]);
           this._router.navigate(['/blog']);
-
+          /////////////////////////////////////////////////
+          swal("Usuario editado!", "el usuario ha sido editado correctamente!", "success");
+          /////////////////////////////////////////////////
           console.log(this.article);
         } else {
           this.status = 'error';
