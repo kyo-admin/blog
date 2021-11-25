@@ -6,10 +6,11 @@
     <section id="content">
 
         <h1 class="subheader">{{article.title}} </h1>
-        <article class="article-item article-detail">
+        <article class="article-item article-detail" *ngIf="article">
             <div class="image-wrap">
                 <img src="{{url +'get-image/'+ article.image}}" alt="{{article.title}}" *ngIf="article.image"/>
-                <img src="assets/images/no-imagen.jpg" alt="{{article.title}}" *ngIf="!article.image"/>            </div>
+                <img src="assets/images/no-imagen.jpg" alt="{{article.title}}" *ngIf="!article.image"/>            
+            </div>
 
             <h1 class="subheader">{{article.title}}</h1>
             <span class="date">

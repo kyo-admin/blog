@@ -50,7 +50,13 @@ var controller = {
             //asignar valores
             article.title = params.title;
             article.content = params.content;
-            article.image = null;
+            if(params.image){
+                article.image = params.image;
+
+            }else{
+                article.image = null;
+
+            }
 
             //guardar el articulo
 
@@ -241,7 +247,8 @@ s
         }else{
             //si todo es valido , sacr id de la url
             var articleId = req.params.id;
-            //buscar el articulo asignar el nombre de la imagen         
+            if(articleId){
+                   //buscar el articulo asignar el nombre de la imagen         
             Article.findOneAndUpdate({_id:articleId}, {image: file_name}, {new:true}, (err, articleUpdated)=>{
                 if(err || !articleUpdated){
                     return res.status(200).send({
@@ -256,7 +263,14 @@ s
                     //split: file_split,
                     //file_ext
                 });
-            });        
+            }); 
+            }else{
+                return res.status(200).send({
+                status: 'success',
+                image:file_name
+                });
+            }
+                
         }        
     }, //end upload file      
     
