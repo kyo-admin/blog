@@ -18,6 +18,11 @@ export class ArticleNewComponent implements OnInit {
   public article: Article;
   public status: string;
   public user: any;
+  public page_title: string
+  public url: string;
+  public is_edit: boolean;
+
+
   /*
   afuConfig = {
     uploadAPI: {
@@ -46,7 +51,8 @@ afuConfig = {
     private _articleService: ArticleService
   ) {
     this.article = new Article('', '', '', null, null);
-
+    this.page_title = 'Crear Usuario';
+    this.url = Global.url;
 
   }
 

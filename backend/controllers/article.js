@@ -172,8 +172,9 @@ s
                         message: 'No existe el articulo!!!'              
                     });
                 }
-                return res.status(500).send({
-                    status: 'success',
+                //return res.status(500).send({
+                return res.status(200).send({
+                        status: 'success',
                     article: articleUpdated              
                 });
                 
